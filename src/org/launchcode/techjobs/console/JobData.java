@@ -83,6 +83,33 @@ public class JobData {
 
         return jobs;
     }
+    public static ArrayList<HashMap<String, String>> findByValue(String value){
+
+        loadData();
+
+        // 1. Initialize a new ArrayList called jobs
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        // 2. "For each loop" to loop through jobs in allJobs
+
+        for (HashMap<String, String> row : allJobs) {
+
+
+            // 3. Nested "For each loop" to loop through keys in row.keySet()
+            for (String key : row.keySet()) {
+                // 4. Get string aValue by using .get() on row
+                String aValue = row.get(key);
+
+                if (aValue.toLowerCase().contains(value.toLowerCase())) {
+                    jobs.add(row);
+
+                    break;
+                }
+            }
+        }
+
+        return jobs;
+    }
 
     /**
      * Read in data from a CSV file and store it in a list
@@ -123,6 +150,8 @@ public class JobData {
             System.out.println("Failed to load job data");
             e.printStackTrace();
         }
+
     }
+
 
 }
