@@ -92,6 +92,7 @@ public class JobData {
 
         // 2. "For each loop" to loop through jobs in allJobs
 
+
         for (HashMap<String, String> row : allJobs) {
 
 
@@ -100,9 +101,8 @@ public class JobData {
                 // 4. Get string aValue by using .get() on row
                 String aValue = row.get(key);
 
-                if (aValue.toLowerCase().contains(value.toLowerCase())) {
+                if (aValue.toUpperCase().contains(value.toUpperCase())) {
                     jobs.add(row);
-
                     break;
                 }
             }
